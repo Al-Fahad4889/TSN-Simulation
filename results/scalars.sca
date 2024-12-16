@@ -1,8 +1,8 @@
 version 3
-run General-0-20241215-23:39:50-9568
+run General-0-20241215-23:47:36-3884
 attr configname General
-attr datetime 20241215-23:39:50
-attr datetimef 20241215-233950
+attr datetime 20241215-23:47:36
+attr datetimef 20241215-234736
 attr experiment General
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,7 +10,7 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network tsn_simulation.TsnSimulation
-attr processid 9568
+attr processid 3884
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -22,6 +22,18 @@ config sim-time-limit 20s
 config ned-path .;tsn_simulation
 config debug-on-errors true
 config print-undisposed true
+config output-scalar-file results/scalars.sca
+config output-vector-file results/vectors.vec
+config **.scalar-recording true
+config **.vector-recording true
+config **.TsnSwitch*.scalar-recording true
+config **.TsnSwitch*.vector-recording true
+config **.TrafficGenerator*.scalar-recording true
+config **.TrafficGenerator*.vector-recording true
+config **.TsnSwitch*.numProcessedPackets:vector true
+config **.TsnSwitch*.packetProcessedSignal:vector true
+config **.TrafficGenerator*.sentPk:scalar true
+config **.TrafficGenerator*.rcvdPk:scalar true
 
 par TsnSimulation.switch1 typename "\"tsn_simulation.TsnSwitch\""
 par TsnSimulation.switch1 gclFilePath "\"models/GclConfig.xml\""

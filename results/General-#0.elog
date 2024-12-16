@@ -1,0 +1,680 @@
+SB ov 1536 ev 2 rid General-0-20241215-23:47:36-3884
+
+E # 0 t 0 m 1 ce -1 msg -1
+MC id 1 c omnetpp::cModule t tsn_simulation.TsnSimulation n TsnSimulation cm 1
+MDC id 1 d bgb=604,317
+MC id 2 c TsnSwitch t tsn_simulation.TsnSwitch pid 1 n switch1
+MDC id 2 d p=218,135;i=block/switch
+GC m 2 g 1048576 n in i 0 o 0
+GC m 2 g 1048577 n in i 1 o 0
+GC m 2 g 1048578 n in i 2 o 0
+GC m 2 g 1048579 n in i 3 o 0
+GC m 2 g 2621440 n out i 0 o 1
+GC m 2 g 2621441 n out i 1 o 1
+GC m 2 g 2621442 n out i 2 o 1
+GC m 2 g 2621443 n out i 3 o 1
+MC id 3 c TsnSwitch t tsn_simulation.TsnSwitch pid 1 n switch2
+MDC id 3 d p=402,135;i=block/switch
+GC m 3 g 1048576 n in i 0 o 0
+GC m 3 g 1048577 n in i 1 o 0
+GC m 3 g 1048578 n in i 2 o 0
+GC m 3 g 1048579 n in i 3 o 0
+GC m 3 g 2621440 n out i 0 o 1
+GC m 3 g 2621441 n out i 1 o 1
+GC m 3 g 2621442 n out i 2 o 1
+GC m 3 g 2621443 n out i 3 o 1
+MC id 4 c TrafficGenerator t tsn_simulation.TrafficGenerator pid 1 n ttTalker
+GC m 4 g 1 n out o 1
+GC m 4 g 2 n in o 0
+MDC id 4 d p=78,135;i=device/device
+MC id 5 c TrafficGenerator t tsn_simulation.TrafficGenerator pid 1 n beSender
+GC m 5 g 1 n out o 1
+GC m 5 g 2 n in o 0
+MDC id 5 d p=78,244;i=device/device
+MC id 6 c TrafficGenerator t tsn_simulation.TrafficGenerator pid 1 n interferenceGen
+GC m 6 g 1 n out o 1
+GC m 6 g 2 n in o 0
+MDC id 6 d p=78,30;i=device/device
+MC id 7 c TrafficGenerator t tsn_simulation.TrafficGenerator pid 1 n ttListener
+GC m 7 g 1 n out o 1
+GC m 7 g 2 n in o 0
+MDC id 7 d p=510,135;i=device/device
+MC id 8 c TrafficGenerator t tsn_simulation.TrafficGenerator pid 1 n beReceiver
+GC m 8 g 1 n out o 1
+GC m 8 g 2 n in o 0
+MDC id 8 d p=510,244;i=device/device
+MC id 9 c TrafficGenerator t tsn_simulation.TrafficGenerator pid 1 n interferenceReceiver
+GC m 9 g 1 n out o 1
+GC m 9 g 2 n in o 0
+MDC id 9 d p=510,30;i=device/device
+CC sm 4 sg 1 dm 2 dg 1048576
+CC sm 5 sg 1 dm 2 dg 1048577
+CC sm 6 sg 1 dm 2 dg 1048578
+CC sm 2 sg 2621440 dm 4 dg 2
+CC sm 2 sg 2621441 dm 5 dg 2
+CC sm 2 sg 2621442 dm 6 dg 2
+CC sm 2 sg 2621443 dm 3 dg 1048579
+CC sm 3 sg 2621443 dm 2 dg 1048579
+CC sm 7 sg 1 dm 3 dg 1048576
+CC sm 8 sg 1 dm 3 dg 1048577
+CC sm 9 sg 1 dm 3 dg 1048578
+CC sm 3 sg 2621440 dm 7 dg 2
+CC sm 3 sg 2621441 dm 8 dg 2
+CC sm 3 sg 2621442 dm 9 dg 2
+CMB sm 1 tm 2 m initialize(0)
+CM id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl pe -1
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 0 am 2 at 1 pe 0
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 0 am 2 at 1 pe 0
+CME
+CMB sm 1 tm 3 m initialize(0)
+CM id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl pe -1
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 0 am 3 at 1 pe 0
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 0 am 3 at 1 pe 0
+CME
+CMB sm 1 tm 4 m initialize(0)
+CM id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic pe -1
+BS id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 0 am 4 at 2 pe 0
+ES id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 0 am 4 at 2 pe 0
+CME
+CMB sm 1 tm 5 m initialize(0)
+CM id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n SendTraffic pe -1
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n SendTraffic sm 5 st 0 am 5 at 5 pe 0
+ES id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n SendTraffic sm 5 st 0 am 5 at 5 pe 0
+CME
+CMB sm 1 tm 6 m initialize(0)
+CM id 4 tid 4 eid 4 etid 4 c omnetpp::cMessage n SendTraffic pe -1
+BS id 4 tid 4 eid 4 etid 4 c omnetpp::cMessage n SendTraffic sm 6 st 0 am 6 at 10 pe 0
+ES id 4 tid 4 eid 4 etid 4 c omnetpp::cMessage n SendTraffic sm 6 st 0 am 6 at 10 pe 0
+CME
+CMB sm 1 tm 7 m initialize(0)
+CM id 5 tid 5 eid 5 etid 5 c omnetpp::cMessage n SendTraffic pe -1
+BS id 5 tid 5 eid 5 etid 5 c omnetpp::cMessage n SendTraffic sm 7 st 0 am 7 at 10 pe 0
+ES id 5 tid 5 eid 5 etid 5 c omnetpp::cMessage n SendTraffic sm 7 st 0 am 7 at 10 pe 0
+CME
+CMB sm 1 tm 8 m initialize(0)
+CM id 6 tid 6 eid 6 etid 6 c omnetpp::cMessage n SendTraffic pe -1
+BS id 6 tid 6 eid 6 etid 6 c omnetpp::cMessage n SendTraffic sm 8 st 0 am 8 at 10 pe 0
+ES id 6 tid 6 eid 6 etid 6 c omnetpp::cMessage n SendTraffic sm 8 st 0 am 8 at 10 pe 0
+CME
+CMB sm 1 tm 9 m initialize(0)
+CM id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n SendTraffic pe -1
+BS id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n SendTraffic sm 9 st 0 am 9 at 10 pe 0
+ES id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n SendTraffic sm 9 st 0 am 9 at 10 pe 0
+CME
+
+E # 1 t 1 m 2 ce 0 msg 0
+- INFO: Processing GCL entry: <gcl>
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 1 am 2 at 2 pe 1
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 1 am 2 at 2 pe 1
+
+E # 2 t 1 m 3 ce 0 msg 1
+- INFO: Processing GCL entry: <gcl>
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 1 am 3 at 2 pe 2
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 1 am 3 at 2 pe 2
+
+E # 3 t 2 m 4 ce 0 msg 2
+CM id 8 tid 8 eid 8 etid 8 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 8 tid 8 eid 8 etid 8 c omnetpp::cMessage n TrafficPacket m 4 pe 3
+SH sm 4 sg 1
+ES id 8 tid 8 eid 8 etid 8 c omnetpp::cMessage n TrafficPacket sm 4 sg 1 st 2 am 2 ag 1048576 at 2 pe 3
+CL id 9 tid 8 eid 9 etid 8 c omnetpp::cMessage n TrafficPacket m 4 pe -1 cid 8
+BS id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 2 am 4 at 4 pe 3
+ES id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 2 am 4 at 4 pe 3
+
+E # 4 t 2 m 2 ce 1 msg 0
+- INFO: Processing GCL entry:     <entry time="0.0" gateState="00001000"/>
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 2 am 2 at 3 pe 4
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 2 am 2 at 3 pe 4
+
+E # 5 t 2 m 3 ce 2 msg 1
+- INFO: Processing GCL entry:     <entry time="0.0" gateState="00001000"/>
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 2 am 3 at 3 pe 5
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 2 am 3 at 3 pe 5
+
+E # 6 t 2 m 2 ce 3 msg 8
+BS id 8 tid 8 eid 8 etid 8 c omnetpp::cMessage n TrafficPacket m 2 pe 6
+SH sm 2 sg 2621440
+ES id 8 tid 8 eid 8 etid 8 c omnetpp::cMessage n TrafficPacket sm 2 sg 2621440 st 2 am 4 ag 2 at 2 pe 6
+CL id 9 tid 8 eid 9 etid 8 c omnetpp::cMessage n TrafficPacket m 2 pe -1 cid 8
+
+E # 7 t 2 m 4 ce 6 msg 8
+
+E # 8 t 3 m 2 ce 4 msg 0
+- INFO: Processing GCL entry:     <entry time="1.0" gateState="00000011"/>
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 3 am 2 at 4 pe 8
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 3 am 2 at 4 pe 8
+
+E # 9 t 3 m 3 ce 5 msg 1
+- INFO: Processing GCL entry:     <entry time="1.0" gateState="00000011"/>
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 3 am 3 at 4 pe 9
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 3 am 3 at 4 pe 9
+
+E # 10 t 4 m 4 ce 3 msg 2
+CM id 9 tid 9 eid 9 etid 9 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 9 tid 9 eid 9 etid 9 c omnetpp::cMessage n TrafficPacket m 4 pe 10
+SH sm 4 sg 1
+ES id 9 tid 9 eid 9 etid 9 c omnetpp::cMessage n TrafficPacket sm 4 sg 1 st 4 am 2 ag 1048576 at 4 pe 10
+CL id 10 tid 9 eid 10 etid 9 c omnetpp::cMessage n TrafficPacket m 4 pe -1 cid 9
+BS id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 4 am 4 at 6 pe 10
+ES id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 4 am 4 at 6 pe 10
+
+E # 11 t 4 m 2 ce 8 msg 0
+- INFO: Processing GCL entry:     <entry time="2.0" gateState="00000000"/>
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 4 am 2 at 5 pe 11
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 4 am 2 at 5 pe 11
+
+E # 12 t 4 m 3 ce 9 msg 1
+- INFO: Processing GCL entry:     <entry time="2.0" gateState="00000000"/>
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 4 am 3 at 5 pe 12
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 4 am 3 at 5 pe 12
+
+E # 13 t 4 m 2 ce 10 msg 9
+BS id 9 tid 9 eid 9 etid 9 c omnetpp::cMessage n TrafficPacket m 2 pe 13
+SH sm 2 sg 2621440
+ES id 9 tid 9 eid 9 etid 9 c omnetpp::cMessage n TrafficPacket sm 2 sg 2621440 st 4 am 4 ag 2 at 4 pe 13
+CL id 10 tid 9 eid 10 etid 9 c omnetpp::cMessage n TrafficPacket m 2 pe -1 cid 9
+
+E # 14 t 4 m 4 ce 13 msg 9
+
+E # 15 t 5 m 5 ce 0 msg 3
+CM id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n TrafficPacket m 5 pe 15
+SH sm 5 sg 1
+ES id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n TrafficPacket sm 5 sg 1 st 5 am 2 ag 1048577 at 5 pe 15
+CL id 11 tid 10 eid 11 etid 10 c omnetpp::cMessage n TrafficPacket m 5 pe -1 cid 10
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n SendTraffic sm 5 st 5 am 5 at 10 pe 15
+ES id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n SendTraffic sm 5 st 5 am 5 at 10 pe 15
+
+E # 16 t 5 m 2 ce 11 msg 0
+- INFO: Processing GCL entry: </gcl>
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 5 am 2 at 6 pe 16
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 5 am 2 at 6 pe 16
+
+E # 17 t 5 m 3 ce 12 msg 1
+- INFO: Processing GCL entry: </gcl>
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 5 am 3 at 6 pe 17
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 5 am 3 at 6 pe 17
+
+E # 18 t 5 m 2 ce 15 msg 10
+BS id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n TrafficPacket m 2 pe 18
+SH sm 2 sg 2621441
+ES id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n TrafficPacket sm 2 sg 2621441 st 5 am 5 ag 2 at 5 pe 18
+CL id 11 tid 10 eid 11 etid 10 c omnetpp::cMessage n TrafficPacket m 2 pe -1 cid 10
+
+E # 19 t 5 m 5 ce 18 msg 10
+
+E # 20 t 6 m 4 ce 10 msg 2
+CM id 11 tid 11 eid 11 etid 11 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 11 tid 11 eid 11 etid 11 c omnetpp::cMessage n TrafficPacket m 4 pe 20
+SH sm 4 sg 1
+ES id 11 tid 11 eid 11 etid 11 c omnetpp::cMessage n TrafficPacket sm 4 sg 1 st 6 am 2 ag 1048576 at 6 pe 20
+CL id 12 tid 11 eid 12 etid 11 c omnetpp::cMessage n TrafficPacket m 4 pe -1 cid 11
+BS id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 6 am 4 at 8 pe 20
+ES id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 6 am 4 at 8 pe 20
+
+E # 21 t 6 m 2 ce 16 msg 0
+- INFO: Processing GCL entry: <gcl>
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 6 am 2 at 7 pe 21
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 6 am 2 at 7 pe 21
+
+E # 22 t 6 m 3 ce 17 msg 1
+- INFO: Processing GCL entry: <gcl>
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 6 am 3 at 7 pe 22
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 6 am 3 at 7 pe 22
+
+E # 23 t 6 m 2 ce 20 msg 11
+BS id 11 tid 11 eid 11 etid 11 c omnetpp::cMessage n TrafficPacket m 2 pe 23
+SH sm 2 sg 2621440
+ES id 11 tid 11 eid 11 etid 11 c omnetpp::cMessage n TrafficPacket sm 2 sg 2621440 st 6 am 4 ag 2 at 6 pe 23
+CL id 12 tid 11 eid 12 etid 11 c omnetpp::cMessage n TrafficPacket m 2 pe -1 cid 11
+
+E # 24 t 6 m 4 ce 23 msg 11
+
+E # 25 t 7 m 2 ce 21 msg 0
+- INFO: Processing GCL entry:     <entry time="0.0" gateState="00001000"/>
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 7 am 2 at 8 pe 25
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 7 am 2 at 8 pe 25
+
+E # 26 t 7 m 3 ce 22 msg 1
+- INFO: Processing GCL entry:     <entry time="0.0" gateState="00001000"/>
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 7 am 3 at 8 pe 26
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 7 am 3 at 8 pe 26
+
+E # 27 t 8 m 4 ce 20 msg 2
+CM id 12 tid 12 eid 12 etid 12 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 12 tid 12 eid 12 etid 12 c omnetpp::cMessage n TrafficPacket m 4 pe 27
+SH sm 4 sg 1
+ES id 12 tid 12 eid 12 etid 12 c omnetpp::cMessage n TrafficPacket sm 4 sg 1 st 8 am 2 ag 1048576 at 8 pe 27
+CL id 13 tid 12 eid 13 etid 12 c omnetpp::cMessage n TrafficPacket m 4 pe -1 cid 12
+BS id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 8 am 4 at 10 pe 27
+ES id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 8 am 4 at 10 pe 27
+
+E # 28 t 8 m 2 ce 25 msg 0
+- INFO: Processing GCL entry:     <entry time="1.0" gateState="00000011"/>
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 8 am 2 at 9 pe 28
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 8 am 2 at 9 pe 28
+
+E # 29 t 8 m 3 ce 26 msg 1
+- INFO: Processing GCL entry:     <entry time="1.0" gateState="00000011"/>
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 8 am 3 at 9 pe 29
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 8 am 3 at 9 pe 29
+
+E # 30 t 8 m 2 ce 27 msg 12
+BS id 12 tid 12 eid 12 etid 12 c omnetpp::cMessage n TrafficPacket m 2 pe 30
+SH sm 2 sg 2621440
+ES id 12 tid 12 eid 12 etid 12 c omnetpp::cMessage n TrafficPacket sm 2 sg 2621440 st 8 am 4 ag 2 at 8 pe 30
+CL id 13 tid 12 eid 13 etid 12 c omnetpp::cMessage n TrafficPacket m 2 pe -1 cid 12
+
+E # 31 t 8 m 4 ce 30 msg 12
+
+E # 32 t 9 m 2 ce 28 msg 0
+- INFO: Processing GCL entry:     <entry time="2.0" gateState="00000000"/>
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 9 am 2 at 10 pe 32
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 9 am 2 at 10 pe 32
+
+E # 33 t 9 m 3 ce 29 msg 1
+- INFO: Processing GCL entry:     <entry time="2.0" gateState="00000000"/>
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 9 am 3 at 10 pe 33
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 9 am 3 at 10 pe 33
+
+E # 34 t 10 m 6 ce 0 msg 4
+CM id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n TrafficPacket m 6 pe 34
+SH sm 6 sg 1
+ES id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n TrafficPacket sm 6 sg 1 st 10 am 2 ag 1048578 at 10 pe 34
+CL id 14 tid 13 eid 14 etid 13 c omnetpp::cMessage n TrafficPacket m 6 pe -1 cid 13
+BS id 4 tid 4 eid 4 etid 4 c omnetpp::cMessage n SendTraffic sm 6 st 10 am 6 at 20 pe 34
+ES id 4 tid 4 eid 4 etid 4 c omnetpp::cMessage n SendTraffic sm 6 st 10 am 6 at 20 pe 34
+
+E # 35 t 10 m 7 ce 0 msg 5
+CM id 14 tid 14 eid 14 etid 14 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 14 tid 14 eid 14 etid 14 c omnetpp::cMessage n TrafficPacket m 7 pe 35
+SH sm 7 sg 1
+ES id 14 tid 14 eid 14 etid 14 c omnetpp::cMessage n TrafficPacket sm 7 sg 1 st 10 am 3 ag 1048576 at 10 pe 35
+CL id 15 tid 14 eid 15 etid 14 c omnetpp::cMessage n TrafficPacket m 7 pe -1 cid 14
+BS id 5 tid 5 eid 5 etid 5 c omnetpp::cMessage n SendTraffic sm 7 st 10 am 7 at 20 pe 35
+ES id 5 tid 5 eid 5 etid 5 c omnetpp::cMessage n SendTraffic sm 7 st 10 am 7 at 20 pe 35
+
+E # 36 t 10 m 8 ce 0 msg 6
+CM id 15 tid 15 eid 15 etid 15 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 15 tid 15 eid 15 etid 15 c omnetpp::cMessage n TrafficPacket m 8 pe 36
+SH sm 8 sg 1
+ES id 15 tid 15 eid 15 etid 15 c omnetpp::cMessage n TrafficPacket sm 8 sg 1 st 10 am 3 ag 1048577 at 10 pe 36
+CL id 16 tid 15 eid 16 etid 15 c omnetpp::cMessage n TrafficPacket m 8 pe -1 cid 15
+BS id 6 tid 6 eid 6 etid 6 c omnetpp::cMessage n SendTraffic sm 8 st 10 am 8 at 20 pe 36
+ES id 6 tid 6 eid 6 etid 6 c omnetpp::cMessage n SendTraffic sm 8 st 10 am 8 at 20 pe 36
+
+E # 37 t 10 m 9 ce 0 msg 7
+CM id 16 tid 16 eid 16 etid 16 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 16 tid 16 eid 16 etid 16 c omnetpp::cMessage n TrafficPacket m 9 pe 37
+SH sm 9 sg 1
+ES id 16 tid 16 eid 16 etid 16 c omnetpp::cMessage n TrafficPacket sm 9 sg 1 st 10 am 3 ag 1048578 at 10 pe 37
+CL id 17 tid 16 eid 17 etid 16 c omnetpp::cMessage n TrafficPacket m 9 pe -1 cid 16
+BS id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n SendTraffic sm 9 st 10 am 9 at 20 pe 37
+ES id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n SendTraffic sm 9 st 10 am 9 at 20 pe 37
+
+E # 38 t 10 m 5 ce 15 msg 3
+CM id 17 tid 17 eid 17 etid 17 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 17 tid 17 eid 17 etid 17 c omnetpp::cMessage n TrafficPacket m 5 pe 38
+SH sm 5 sg 1
+ES id 17 tid 17 eid 17 etid 17 c omnetpp::cMessage n TrafficPacket sm 5 sg 1 st 10 am 2 ag 1048577 at 10 pe 38
+CL id 18 tid 17 eid 18 etid 17 c omnetpp::cMessage n TrafficPacket m 5 pe -1 cid 17
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n SendTraffic sm 5 st 10 am 5 at 15 pe 38
+ES id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n SendTraffic sm 5 st 10 am 5 at 15 pe 38
+
+E # 39 t 10 m 4 ce 27 msg 2
+CM id 18 tid 18 eid 18 etid 18 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 18 tid 18 eid 18 etid 18 c omnetpp::cMessage n TrafficPacket m 4 pe 39
+SH sm 4 sg 1
+ES id 18 tid 18 eid 18 etid 18 c omnetpp::cMessage n TrafficPacket sm 4 sg 1 st 10 am 2 ag 1048576 at 10 pe 39
+CL id 19 tid 18 eid 19 etid 18 c omnetpp::cMessage n TrafficPacket m 4 pe -1 cid 18
+BS id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 10 am 4 at 12 pe 39
+ES id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 10 am 4 at 12 pe 39
+
+E # 40 t 10 m 2 ce 32 msg 0
+- INFO: Processing GCL entry: </gcl>
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 10 am 2 at 11 pe 40
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 10 am 2 at 11 pe 40
+
+E # 41 t 10 m 3 ce 33 msg 1
+- INFO: Processing GCL entry: </gcl>
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 10 am 3 at 11 pe 41
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 10 am 3 at 11 pe 41
+
+E # 42 t 10 m 2 ce 34 msg 13
+BS id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n TrafficPacket m 2 pe 42
+SH sm 2 sg 2621442
+ES id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n TrafficPacket sm 2 sg 2621442 st 10 am 6 ag 2 at 10 pe 42
+CL id 19 tid 13 eid 19 etid 13 c omnetpp::cMessage n TrafficPacket m 2 pe -1 cid 13
+
+E # 43 t 10 m 3 ce 35 msg 14
+BS id 14 tid 14 eid 14 etid 14 c omnetpp::cMessage n TrafficPacket m 3 pe 43
+SH sm 3 sg 2621440
+ES id 14 tid 14 eid 14 etid 14 c omnetpp::cMessage n TrafficPacket sm 3 sg 2621440 st 10 am 7 ag 2 at 10 pe 43
+CL id 19 tid 14 eid 19 etid 14 c omnetpp::cMessage n TrafficPacket m 3 pe -1 cid 14
+
+E # 44 t 10 m 3 ce 36 msg 15
+BS id 15 tid 15 eid 15 etid 15 c omnetpp::cMessage n TrafficPacket m 3 pe 44
+SH sm 3 sg 2621441
+ES id 15 tid 15 eid 15 etid 15 c omnetpp::cMessage n TrafficPacket sm 3 sg 2621441 st 10 am 8 ag 2 at 10 pe 44
+CL id 19 tid 15 eid 19 etid 15 c omnetpp::cMessage n TrafficPacket m 3 pe -1 cid 15
+
+E # 45 t 10 m 3 ce 37 msg 16
+BS id 16 tid 16 eid 16 etid 16 c omnetpp::cMessage n TrafficPacket m 3 pe 45
+SH sm 3 sg 2621442
+ES id 16 tid 16 eid 16 etid 16 c omnetpp::cMessage n TrafficPacket sm 3 sg 2621442 st 10 am 9 ag 2 at 10 pe 45
+CL id 19 tid 16 eid 19 etid 16 c omnetpp::cMessage n TrafficPacket m 3 pe -1 cid 16
+
+E # 46 t 10 m 2 ce 38 msg 17
+BS id 17 tid 17 eid 17 etid 17 c omnetpp::cMessage n TrafficPacket m 2 pe 46
+SH sm 2 sg 2621441
+ES id 17 tid 17 eid 17 etid 17 c omnetpp::cMessage n TrafficPacket sm 2 sg 2621441 st 10 am 5 ag 2 at 10 pe 46
+CL id 19 tid 17 eid 19 etid 17 c omnetpp::cMessage n TrafficPacket m 2 pe -1 cid 17
+
+E # 47 t 10 m 2 ce 39 msg 18
+BS id 18 tid 18 eid 18 etid 18 c omnetpp::cMessage n TrafficPacket m 2 pe 47
+SH sm 2 sg 2621440
+ES id 18 tid 18 eid 18 etid 18 c omnetpp::cMessage n TrafficPacket sm 2 sg 2621440 st 10 am 4 ag 2 at 10 pe 47
+CL id 19 tid 18 eid 19 etid 18 c omnetpp::cMessage n TrafficPacket m 2 pe -1 cid 18
+
+E # 48 t 10 m 6 ce 42 msg 13
+
+E # 49 t 10 m 7 ce 43 msg 14
+
+E # 50 t 10 m 8 ce 44 msg 15
+
+E # 51 t 10 m 9 ce 45 msg 16
+
+E # 52 t 10 m 5 ce 46 msg 17
+
+E # 53 t 10 m 4 ce 47 msg 18
+
+E # 54 t 11 m 2 ce 40 msg 0
+- INFO: Processing GCL entry: <gcl>
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 11 am 2 at 12 pe 54
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 11 am 2 at 12 pe 54
+
+E # 55 t 11 m 3 ce 41 msg 1
+- INFO: Processing GCL entry: <gcl>
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 11 am 3 at 12 pe 55
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 11 am 3 at 12 pe 55
+
+E # 56 t 12 m 4 ce 39 msg 2
+CM id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n TrafficPacket m 4 pe 56
+SH sm 4 sg 1
+ES id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n TrafficPacket sm 4 sg 1 st 12 am 2 ag 1048576 at 12 pe 56
+CL id 20 tid 19 eid 20 etid 19 c omnetpp::cMessage n TrafficPacket m 4 pe -1 cid 19
+BS id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 12 am 4 at 14 pe 56
+ES id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 12 am 4 at 14 pe 56
+
+E # 57 t 12 m 2 ce 54 msg 0
+- INFO: Processing GCL entry:     <entry time="0.0" gateState="00001000"/>
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 12 am 2 at 13 pe 57
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 12 am 2 at 13 pe 57
+
+E # 58 t 12 m 3 ce 55 msg 1
+- INFO: Processing GCL entry:     <entry time="0.0" gateState="00001000"/>
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 12 am 3 at 13 pe 58
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 12 am 3 at 13 pe 58
+
+E # 59 t 12 m 2 ce 56 msg 19
+BS id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n TrafficPacket m 2 pe 59
+SH sm 2 sg 2621440
+ES id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n TrafficPacket sm 2 sg 2621440 st 12 am 4 ag 2 at 12 pe 59
+CL id 20 tid 19 eid 20 etid 19 c omnetpp::cMessage n TrafficPacket m 2 pe -1 cid 19
+
+E # 60 t 12 m 4 ce 59 msg 19
+
+E # 61 t 13 m 2 ce 57 msg 0
+- INFO: Processing GCL entry:     <entry time="1.0" gateState="00000011"/>
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 13 am 2 at 14 pe 61
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 13 am 2 at 14 pe 61
+
+E # 62 t 13 m 3 ce 58 msg 1
+- INFO: Processing GCL entry:     <entry time="1.0" gateState="00000011"/>
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 13 am 3 at 14 pe 62
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 13 am 3 at 14 pe 62
+
+E # 63 t 14 m 4 ce 56 msg 2
+CM id 20 tid 20 eid 20 etid 20 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 20 tid 20 eid 20 etid 20 c omnetpp::cMessage n TrafficPacket m 4 pe 63
+SH sm 4 sg 1
+ES id 20 tid 20 eid 20 etid 20 c omnetpp::cMessage n TrafficPacket sm 4 sg 1 st 14 am 2 ag 1048576 at 14 pe 63
+CL id 21 tid 20 eid 21 etid 20 c omnetpp::cMessage n TrafficPacket m 4 pe -1 cid 20
+BS id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 14 am 4 at 16 pe 63
+ES id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 14 am 4 at 16 pe 63
+
+E # 64 t 14 m 2 ce 61 msg 0
+- INFO: Processing GCL entry:     <entry time="2.0" gateState="00000000"/>
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 14 am 2 at 15 pe 64
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 14 am 2 at 15 pe 64
+
+E # 65 t 14 m 3 ce 62 msg 1
+- INFO: Processing GCL entry:     <entry time="2.0" gateState="00000000"/>
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 14 am 3 at 15 pe 65
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 14 am 3 at 15 pe 65
+
+E # 66 t 14 m 2 ce 63 msg 20
+BS id 20 tid 20 eid 20 etid 20 c omnetpp::cMessage n TrafficPacket m 2 pe 66
+SH sm 2 sg 2621440
+ES id 20 tid 20 eid 20 etid 20 c omnetpp::cMessage n TrafficPacket sm 2 sg 2621440 st 14 am 4 ag 2 at 14 pe 66
+CL id 21 tid 20 eid 21 etid 20 c omnetpp::cMessage n TrafficPacket m 2 pe -1 cid 20
+
+E # 67 t 14 m 4 ce 66 msg 20
+
+E # 68 t 15 m 5 ce 38 msg 3
+CM id 21 tid 21 eid 21 etid 21 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 21 tid 21 eid 21 etid 21 c omnetpp::cMessage n TrafficPacket m 5 pe 68
+SH sm 5 sg 1
+ES id 21 tid 21 eid 21 etid 21 c omnetpp::cMessage n TrafficPacket sm 5 sg 1 st 15 am 2 ag 1048577 at 15 pe 68
+CL id 22 tid 21 eid 22 etid 21 c omnetpp::cMessage n TrafficPacket m 5 pe -1 cid 21
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n SendTraffic sm 5 st 15 am 5 at 20 pe 68
+ES id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n SendTraffic sm 5 st 15 am 5 at 20 pe 68
+
+E # 69 t 15 m 2 ce 64 msg 0
+- INFO: Processing GCL entry: </gcl>
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 15 am 2 at 16 pe 69
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 15 am 2 at 16 pe 69
+
+E # 70 t 15 m 3 ce 65 msg 1
+- INFO: Processing GCL entry: </gcl>
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 15 am 3 at 16 pe 70
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 15 am 3 at 16 pe 70
+
+E # 71 t 15 m 2 ce 68 msg 21
+BS id 21 tid 21 eid 21 etid 21 c omnetpp::cMessage n TrafficPacket m 2 pe 71
+SH sm 2 sg 2621441
+ES id 21 tid 21 eid 21 etid 21 c omnetpp::cMessage n TrafficPacket sm 2 sg 2621441 st 15 am 5 ag 2 at 15 pe 71
+CL id 22 tid 21 eid 22 etid 21 c omnetpp::cMessage n TrafficPacket m 2 pe -1 cid 21
+
+E # 72 t 15 m 5 ce 71 msg 21
+
+E # 73 t 16 m 4 ce 63 msg 2
+CM id 22 tid 22 eid 22 etid 22 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 22 tid 22 eid 22 etid 22 c omnetpp::cMessage n TrafficPacket m 4 pe 73
+SH sm 4 sg 1
+ES id 22 tid 22 eid 22 etid 22 c omnetpp::cMessage n TrafficPacket sm 4 sg 1 st 16 am 2 ag 1048576 at 16 pe 73
+CL id 23 tid 22 eid 23 etid 22 c omnetpp::cMessage n TrafficPacket m 4 pe -1 cid 22
+BS id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 16 am 4 at 18 pe 73
+ES id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 16 am 4 at 18 pe 73
+
+E # 74 t 16 m 2 ce 69 msg 0
+- INFO: Processing GCL entry: <gcl>
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 16 am 2 at 17 pe 74
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 16 am 2 at 17 pe 74
+
+E # 75 t 16 m 3 ce 70 msg 1
+- INFO: Processing GCL entry: <gcl>
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 16 am 3 at 17 pe 75
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 16 am 3 at 17 pe 75
+
+E # 76 t 16 m 2 ce 73 msg 22
+BS id 22 tid 22 eid 22 etid 22 c omnetpp::cMessage n TrafficPacket m 2 pe 76
+SH sm 2 sg 2621440
+ES id 22 tid 22 eid 22 etid 22 c omnetpp::cMessage n TrafficPacket sm 2 sg 2621440 st 16 am 4 ag 2 at 16 pe 76
+CL id 23 tid 22 eid 23 etid 22 c omnetpp::cMessage n TrafficPacket m 2 pe -1 cid 22
+
+E # 77 t 16 m 4 ce 76 msg 22
+
+E # 78 t 17 m 2 ce 74 msg 0
+- INFO: Processing GCL entry:     <entry time="0.0" gateState="00001000"/>
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 17 am 2 at 18 pe 78
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 17 am 2 at 18 pe 78
+
+E # 79 t 17 m 3 ce 75 msg 1
+- INFO: Processing GCL entry:     <entry time="0.0" gateState="00001000"/>
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 17 am 3 at 18 pe 79
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 17 am 3 at 18 pe 79
+
+E # 80 t 18 m 4 ce 73 msg 2
+CM id 23 tid 23 eid 23 etid 23 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 23 tid 23 eid 23 etid 23 c omnetpp::cMessage n TrafficPacket m 4 pe 80
+SH sm 4 sg 1
+ES id 23 tid 23 eid 23 etid 23 c omnetpp::cMessage n TrafficPacket sm 4 sg 1 st 18 am 2 ag 1048576 at 18 pe 80
+CL id 24 tid 23 eid 24 etid 23 c omnetpp::cMessage n TrafficPacket m 4 pe -1 cid 23
+BS id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 18 am 4 at 20 pe 80
+ES id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 18 am 4 at 20 pe 80
+
+E # 81 t 18 m 2 ce 78 msg 0
+- INFO: Processing GCL entry:     <entry time="1.0" gateState="00000011"/>
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 18 am 2 at 19 pe 81
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 18 am 2 at 19 pe 81
+
+E # 82 t 18 m 3 ce 79 msg 1
+- INFO: Processing GCL entry:     <entry time="1.0" gateState="00000011"/>
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 18 am 3 at 19 pe 82
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 18 am 3 at 19 pe 82
+
+E # 83 t 18 m 2 ce 80 msg 23
+BS id 23 tid 23 eid 23 etid 23 c omnetpp::cMessage n TrafficPacket m 2 pe 83
+SH sm 2 sg 2621440
+ES id 23 tid 23 eid 23 etid 23 c omnetpp::cMessage n TrafficPacket sm 2 sg 2621440 st 18 am 4 ag 2 at 18 pe 83
+CL id 24 tid 23 eid 24 etid 23 c omnetpp::cMessage n TrafficPacket m 2 pe -1 cid 23
+
+E # 84 t 18 m 4 ce 83 msg 23
+
+E # 85 t 19 m 2 ce 81 msg 0
+- INFO: Processing GCL entry:     <entry time="2.0" gateState="00000000"/>
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 19 am 2 at 20 pe 85
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 19 am 2 at 20 pe 85
+
+E # 86 t 19 m 3 ce 82 msg 1
+- INFO: Processing GCL entry:     <entry time="2.0" gateState="00000000"/>
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 19 am 3 at 20 pe 86
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 19 am 3 at 20 pe 86
+
+E # 87 t 20 m 6 ce 34 msg 4
+CM id 24 tid 24 eid 24 etid 24 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 24 tid 24 eid 24 etid 24 c omnetpp::cMessage n TrafficPacket m 6 pe 87
+SH sm 6 sg 1
+ES id 24 tid 24 eid 24 etid 24 c omnetpp::cMessage n TrafficPacket sm 6 sg 1 st 20 am 2 ag 1048578 at 20 pe 87
+CL id 25 tid 24 eid 25 etid 24 c omnetpp::cMessage n TrafficPacket m 6 pe -1 cid 24
+BS id 4 tid 4 eid 4 etid 4 c omnetpp::cMessage n SendTraffic sm 6 st 20 am 6 at 30 pe 87
+ES id 4 tid 4 eid 4 etid 4 c omnetpp::cMessage n SendTraffic sm 6 st 20 am 6 at 30 pe 87
+
+E # 88 t 20 m 7 ce 35 msg 5
+CM id 25 tid 25 eid 25 etid 25 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 25 tid 25 eid 25 etid 25 c omnetpp::cMessage n TrafficPacket m 7 pe 88
+SH sm 7 sg 1
+ES id 25 tid 25 eid 25 etid 25 c omnetpp::cMessage n TrafficPacket sm 7 sg 1 st 20 am 3 ag 1048576 at 20 pe 88
+CL id 26 tid 25 eid 26 etid 25 c omnetpp::cMessage n TrafficPacket m 7 pe -1 cid 25
+BS id 5 tid 5 eid 5 etid 5 c omnetpp::cMessage n SendTraffic sm 7 st 20 am 7 at 30 pe 88
+ES id 5 tid 5 eid 5 etid 5 c omnetpp::cMessage n SendTraffic sm 7 st 20 am 7 at 30 pe 88
+
+E # 89 t 20 m 8 ce 36 msg 6
+CM id 26 tid 26 eid 26 etid 26 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 26 tid 26 eid 26 etid 26 c omnetpp::cMessage n TrafficPacket m 8 pe 89
+SH sm 8 sg 1
+ES id 26 tid 26 eid 26 etid 26 c omnetpp::cMessage n TrafficPacket sm 8 sg 1 st 20 am 3 ag 1048577 at 20 pe 89
+CL id 27 tid 26 eid 27 etid 26 c omnetpp::cMessage n TrafficPacket m 8 pe -1 cid 26
+BS id 6 tid 6 eid 6 etid 6 c omnetpp::cMessage n SendTraffic sm 8 st 20 am 8 at 30 pe 89
+ES id 6 tid 6 eid 6 etid 6 c omnetpp::cMessage n SendTraffic sm 8 st 20 am 8 at 30 pe 89
+
+E # 90 t 20 m 9 ce 37 msg 7
+CM id 27 tid 27 eid 27 etid 27 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 27 tid 27 eid 27 etid 27 c omnetpp::cMessage n TrafficPacket m 9 pe 90
+SH sm 9 sg 1
+ES id 27 tid 27 eid 27 etid 27 c omnetpp::cMessage n TrafficPacket sm 9 sg 1 st 20 am 3 ag 1048578 at 20 pe 90
+CL id 28 tid 27 eid 28 etid 27 c omnetpp::cMessage n TrafficPacket m 9 pe -1 cid 27
+BS id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n SendTraffic sm 9 st 20 am 9 at 30 pe 90
+ES id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n SendTraffic sm 9 st 20 am 9 at 30 pe 90
+
+E # 91 t 20 m 5 ce 68 msg 3
+CM id 28 tid 28 eid 28 etid 28 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 28 tid 28 eid 28 etid 28 c omnetpp::cMessage n TrafficPacket m 5 pe 91
+SH sm 5 sg 1
+ES id 28 tid 28 eid 28 etid 28 c omnetpp::cMessage n TrafficPacket sm 5 sg 1 st 20 am 2 ag 1048577 at 20 pe 91
+CL id 29 tid 28 eid 29 etid 28 c omnetpp::cMessage n TrafficPacket m 5 pe -1 cid 28
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n SendTraffic sm 5 st 20 am 5 at 25 pe 91
+ES id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n SendTraffic sm 5 st 20 am 5 at 25 pe 91
+
+E # 92 t 20 m 4 ce 80 msg 2
+CM id 29 tid 29 eid 29 etid 29 c omnetpp::cMessage n TrafficPacket pe -1
+BS id 29 tid 29 eid 29 etid 29 c omnetpp::cMessage n TrafficPacket m 4 pe 92
+SH sm 4 sg 1
+ES id 29 tid 29 eid 29 etid 29 c omnetpp::cMessage n TrafficPacket sm 4 sg 1 st 20 am 2 ag 1048576 at 20 pe 92
+CL id 30 tid 29 eid 30 etid 29 c omnetpp::cMessage n TrafficPacket m 4 pe -1 cid 29
+BS id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 20 am 4 at 22 pe 92
+ES id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n SendTraffic sm 4 st 20 am 4 at 22 pe 92
+
+E # 93 t 20 m 2 ce 85 msg 0
+- INFO: Processing GCL entry: </gcl>
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 20 am 2 at 21 pe 93
+ES id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n ProcessGcl sm 2 st 20 am 2 at 21 pe 93
+
+E # 94 t 20 m 3 ce 86 msg 1
+- INFO: Processing GCL entry: </gcl>
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 20 am 3 at 21 pe 94
+ES id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n ProcessGcl sm 3 st 20 am 3 at 21 pe 94
+
+E # 95 t 20 m 2 ce 87 msg 24
+BS id 24 tid 24 eid 24 etid 24 c omnetpp::cMessage n TrafficPacket m 2 pe 95
+SH sm 2 sg 2621442
+ES id 24 tid 24 eid 24 etid 24 c omnetpp::cMessage n TrafficPacket sm 2 sg 2621442 st 20 am 6 ag 2 at 20 pe 95
+CL id 30 tid 24 eid 30 etid 24 c omnetpp::cMessage n TrafficPacket m 2 pe -1 cid 24
+
+E # 96 t 20 m 3 ce 88 msg 25
+BS id 25 tid 25 eid 25 etid 25 c omnetpp::cMessage n TrafficPacket m 3 pe 96
+SH sm 3 sg 2621440
+ES id 25 tid 25 eid 25 etid 25 c omnetpp::cMessage n TrafficPacket sm 3 sg 2621440 st 20 am 7 ag 2 at 20 pe 96
+CL id 30 tid 25 eid 30 etid 25 c omnetpp::cMessage n TrafficPacket m 3 pe -1 cid 25
+
+E # 97 t 20 m 3 ce 89 msg 26
+BS id 26 tid 26 eid 26 etid 26 c omnetpp::cMessage n TrafficPacket m 3 pe 97
+SH sm 3 sg 2621441
+ES id 26 tid 26 eid 26 etid 26 c omnetpp::cMessage n TrafficPacket sm 3 sg 2621441 st 20 am 8 ag 2 at 20 pe 97
+CL id 30 tid 26 eid 30 etid 26 c omnetpp::cMessage n TrafficPacket m 3 pe -1 cid 26
+
+E # 98 t 20 m 3 ce 90 msg 27
+BS id 27 tid 27 eid 27 etid 27 c omnetpp::cMessage n TrafficPacket m 3 pe 98
+SH sm 3 sg 2621442
+ES id 27 tid 27 eid 27 etid 27 c omnetpp::cMessage n TrafficPacket sm 3 sg 2621442 st 20 am 9 ag 2 at 20 pe 98
+CL id 30 tid 27 eid 30 etid 27 c omnetpp::cMessage n TrafficPacket m 3 pe -1 cid 27
+
+E # 99 t 20 m 2 ce 91 msg 28
+BS id 28 tid 28 eid 28 etid 28 c omnetpp::cMessage n TrafficPacket m 2 pe 99
+SH sm 2 sg 2621441
+ES id 28 tid 28 eid 28 etid 28 c omnetpp::cMessage n TrafficPacket sm 2 sg 2621441 st 20 am 5 ag 2 at 20 pe 99
+CL id 30 tid 28 eid 30 etid 28 c omnetpp::cMessage n TrafficPacket m 2 pe -1 cid 28
+
+E # 100 t 20 m 2 ce 92 msg 29
+BS id 29 tid 29 eid 29 etid 29 c omnetpp::cMessage n TrafficPacket m 2 pe 100
+SH sm 2 sg 2621440
+ES id 29 tid 29 eid 29 etid 29 c omnetpp::cMessage n TrafficPacket sm 2 sg 2621440 st 20 am 4 ag 2 at 20 pe 100
+CL id 30 tid 29 eid 30 etid 29 c omnetpp::cMessage n TrafficPacket m 2 pe -1 cid 29
+
+E # 101 t 20 m 6 ce 95 msg 24
+
+E # 102 t 20 m 7 ce 96 msg 25
+
+E # 103 t 20 m 8 ce 97 msg 26
+
+E # 104 t 20 m 9 ce 98 msg 27
+
+E # 105 t 20 m 5 ce 99 msg 28
+
+E # 106 t 20 m 4 ce 100 msg 29
+
+
+SE e 0 c 38 m "Simulation time limit reached -- at t=20s, event #107"
